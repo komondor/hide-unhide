@@ -1,10 +1,10 @@
 # hide-extension
 
-simple vscode extension to hide files and folders from explorer
+simple vscode extension to hide/unhiide files and folders from explorer
 
 ## how it works
 
-add file to exclude list in .vscode/settings.json
+It inverts the Explorer visibility of all the files and folders included in `.vscode/settings.json`
 
 ```
 {
@@ -15,9 +15,13 @@ add file to exclude list in .vscode/settings.json
 }
 ```
 
-launch the extension from the command palette (Hide and Unhide File from Explorer)
+## usage
 
-It will inverse the current setting and apply it to the current workspace.
+Type `Hide/Unhide Files from Explorer` in the Command Palette Prompt
+
+## install
+
+You can find the extension in the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ghostmind.hide-unhide)
 
 ## development
 

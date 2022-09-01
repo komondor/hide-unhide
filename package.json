@@ -3,6 +3,7 @@
   "displayName": "hide-unhide",
   "description": "",
   "version": "0.0.1",
+  "publisher": "ghostmind",
   "repository": {
     "type": "git",
     "url": "https://github.com/komondor/hide-unhide.git"
