@@ -51,7 +51,6 @@
         "equinusocio.vsc-material-theme",
         "wesbos.theme-cobalt2",
         "sumneko.lua",
-        "ghostmind.hide-unhide",
         "tinkertrain.theme-panda",
         "golang.go",
         "yinfei.luahelper",
@@ -68,7 +67,8 @@
         "prisma.prisma",
         "bradlc.vscode-tailwindcss",
         "mariorodeghiero.vue-theme",
-        "denoland.vscode-deno"
+        "denoland.vscode-deno",
+        "connor4312.esbuild-problem-matchers"
       ]
     }
   }

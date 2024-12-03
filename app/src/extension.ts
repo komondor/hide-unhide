@@ -2,7 +2,10 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log('Extension "hide-unhide" is now active');
+  const outputChannel = vscode.window.createOutputChannel('My Extension Logs');
+  outputChannel.appendLine('239023923');
+  outputChannel.show(); // Optional: Automatically show the channel
+
   let disposable = vscode.commands.registerCommand('hide.unhide', () => {
     const globalConfig = vscode.workspace.getConfiguration('files');
 

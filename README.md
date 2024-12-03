@@ -5,6 +5,8 @@ simple vscode extension to hide/unhiide files and folders from explorer
 ## notes
 
 - bug: disable vscode-icons
+- bug: only works in vscode code (not cursor)
+- bug: vsce login publisher needs to be run from the terminal (not in scripts)
 
 ## how it works
 
