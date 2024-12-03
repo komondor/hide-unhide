@@ -1,0 +1,42 @@
+{
+  "name": "hide-unhide",
+  "displayName": "hide-unhide",
+  "description": "",
+  "publisher": "ghostmind",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/komondor/hide-unhide.git"
+  },
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "hide.unhide",
+        "title": "Hide/Unhide Files in Explorer"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "node esbuild.js --production"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.95.0",
+    "@types/node": "20.x",
+    "esbuild": "^0.24.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.6.3"
+  }
+}

@@ -2,6 +2,10 @@
 
 simple vscode extension to hide/unhiide files and folders from explorer
 
+## notes
+
+- bug: disable vscode-icons
+
 ## how it works
 
 It inverts the Explorer visibility of all the files and folders included in `.vscode/settings.json`
