@@ -32,5 +32,5 @@ You can find the extension in the [Visual Studio Code Marketplace](https://marke
 ## development
 
 - `f5 to build and launch into another window`
-- `cmd+r to reload`
-- `cmd+shift+p and execute extension`
+- `cmd+r to reload from the extension host window`
+
