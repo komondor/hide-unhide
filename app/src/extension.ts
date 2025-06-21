@@ -2,10 +2,6 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 
 export function activate(context: vscode.ExtensionContext) {
-  const outputChannel = vscode.window.createOutputChannel('My Extension Logs');
-
-  outputChannel.show(); // Optional: Automatically show the channel
-
   let disposable = vscode.commands.registerCommand('hide.unhide', () => {
     const globalConfig = vscode.workspace.getConfiguration('files');
 
