@@ -3,7 +3,7 @@ import * as fs from 'fs';
 
 export function activate(context: vscode.ExtensionContext) {
   const outputChannel = vscode.window.createOutputChannel('My Extension Logs');
-  outputChannel.appendLine('239023923');
+
   outputChannel.show(); // Optional: Automatically show the channel
 
   let disposable = vscode.commands.registerCommand('hide.unhide', () => {
