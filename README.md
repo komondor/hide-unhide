@@ -2,11 +2,12 @@
 
 simple vscode extension to hide/unhiide files and folders from explorer
 
-## notes
+## publish
 
-- bug: disable vscode-icons
-- bug: only works in vscode code (not cursor)
-- bug: vsce login publisher needs to be run from the terminal (not in scripts)
+
+- get a new personal access token at https://dev.azure.com/${PUBLISHER_NAME}
+- run `vsce login` and enter your token
+
 
 ## how it works
 

@@ -25,6 +25,7 @@
     "INIT_LOGIN_CLOUDFLARE": "true"
   },
   "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
     "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
     "source=ghostmind-hide-unhide-history,target=/commandhistory,type=volume",
     "source=${env:HOME}${env:USERPROFILE}/projects/divers/hide-unhide,target=/Users/francoisseguin/projects/divers/hide-unhide,type=bind"
