@@ -5,8 +5,8 @@ simple vscode extension to hide/unhiide files and folders from explorer
 ## publish
 
 
-- get a new personal access token at https://dev.azure.com/${PUBLISHER_NAME}
-- run `vsce login` and enter your token
+- get a new personal access token at https://dev.azure.com/${PUBLISHER_NAME} (expired after 90 days)
+- exectue `run custom login`
 
 
 ## how it works

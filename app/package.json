@@ -7,7 +7,28 @@
     "type": "git",
     "url": "https://github.com/komondor/hide-unhide.git"
   },
-  "version": "0.0.6",
+  "homepage": "https://github.com/komondor/hide-unhide#readme",
+  "bugs": {
+    "url": "https://github.com/komondor/hide-unhide/issues"
+  },
+  "license": "MIT",
+  "version": "0.0.9",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "keywords": [
+    "hide",
+    "unhide",
+    "files",
+    "folders",
+    "explorer",
+    "toggle",
+    "visibility",
+    "workspace",
+    "exclude"
+  ],
   "engines": {
     "vscode": "^1.95.0"
   },

@@ -1,5 +1,8 @@
 {
   "id": "AeyMdC5tIGc0",
   "name": "hide-unhide",
-  "type": "app"
+  "type": "app",
+  "routines": {
+    "login": "echo ${AZURE_TOKEN} | vsce login ${PUBLISHER_ID}"
+  }
 }
