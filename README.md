@@ -32,6 +32,8 @@ You can find the extension in the [Visual Studio Code Marketplace](https://marke
 
 ## development
 
+- use vscode (not cursor)
+- `cp -r ../ ~/` to have a developement environemnt in the extension window
 - `f5 to build and launch into another window`
 - `cmd+r to reload from the extension host window`
 
