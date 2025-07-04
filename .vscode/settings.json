@@ -14,10 +14,13 @@
     "**/.terraform.lock.hcl": true,
     "**/.npmignore": true
   },
-  "deno.disablePaths": ["/workspaces/hide-unhide/app/src/**/*.ts"],
+  "deno.disablePaths": [
+    "/workspaces/hide-unhide/app/src/**/*.ts"
+  ],
   "material-icon-theme.folders.associations": {},
   "material-icon-theme.files.associations": {},
   "workbench.colorCustomizations": {
     "gitDecoration.ignoredResourceForeground": "#b1a86d"
-  }
+  },
+  "deno.enable": true
 }
