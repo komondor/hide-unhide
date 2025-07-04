@@ -1,1 +1,96 @@
-"use strict";var E=Object.create;var d=Object.defineProperty;var k=Object.getOwnPropertyDescriptor;var M=Object.getOwnPropertyNames;var S=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var y=(e,s)=>{for(var o in s)d(e,o,{get:s[o],enumerable:!0})},h=(e,s,o,c)=>{if(s&&typeof s=="object"||typeof s=="function")for(let r of M(s))!b.call(e,r)&&r!==o&&d(e,r,{get:()=>s[r],enumerable:!(c=k(s,r))||c.enumerable});return e};var m=(e,s,o)=>(o=e!=null?E(S(e)):{},h(s||!e||!e.__esModule?d(o,"default",{value:e,enumerable:!0}):o,e)),C=e=>h(d({},"__esModule",{value:!0}),e);var O={};y(O,{activate:()=>F,deactivate:()=>N});module.exports=C(O);var n=m(require("vscode")),i=m(require("fs"));function F(e){let s=n.commands.registerCommand("hide.unhide",()=>{let o=n.workspace.getConfiguration("files"),c=n.workspace.workspaceFolders;if(!c){n.window.showErrorMessage("No workspace folder open");return}let r=c[0].uri;function p(t,v=null){try{let g=i.readFileSync(t,"utf8"),l=JSON.parse(g),f=l["files.exclude"];if(!f){n.window.showWarningMessage(`No 'files.exclude' found in ${t}`);return}let u={};for(let w in f)u[w]=!f[w];v?v.update("exclude",u):(l["files.exclude"]=u,i.writeFileSync(t,JSON.stringify(l,null,2),"utf8"))}catch{n.window.showErrorMessage(`Failed to process settings at ${t}`)}}p(r.fsPath+"/.vscode/settings.json",o);let a=process.env.HOME||process.env.USERPROFILE;if(!a){n.window.showWarningMessage("Could not determine user home directory.");return}let x=[`${a}/.vscode-server/data/Machine/settings.json`,`${a}/.cursor-server/data/Machine/settings.json`];for(let t of x)i.existsSync(t)&&p(t)});e.subscriptions.push(s)}function N(){}0&&(module.exports={activate,deactivate});
+"use strict";
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+// src/extension.ts
+var extension_exports = {};
+__export(extension_exports, {
+  activate: () => activate,
+  deactivate: () => deactivate
+});
+module.exports = __toCommonJS(extension_exports);
+var vscode = __toESM(require("vscode"));
+var fs = __toESM(require("fs"));
+function activate(context) {
+  let disposable = vscode.commands.registerCommand("hide.unhide", () => {
+    const globalConfig = vscode.workspace.getConfiguration("files");
+    const workspaceFolders = vscode.workspace.workspaceFolders;
+    if (!workspaceFolders) {
+      vscode.window.showErrorMessage("No workspace folder open");
+      return;
+    }
+    let workspaceUri = workspaceFolders[0].uri;
+    function invertAndUpdateExclude(settingsPath, config = null) {
+      try {
+        let settingJson = fs.readFileSync(settingsPath, "utf8");
+        const settingsObject = JSON.parse(settingJson);
+        let filesExclude = settingsObject["files.exclude"];
+        if (!filesExclude) {
+          vscode.window.showWarningMessage(`No 'files.exclude' found in ${settingsPath}`);
+          return;
+        }
+        let inverseExclude = {};
+        for (let fileName in filesExclude) {
+          inverseExclude[fileName] = !filesExclude[fileName];
+        }
+        if (config) {
+          config.update("exclude", inverseExclude);
+        } else {
+          settingsObject["files.exclude"] = inverseExclude;
+          fs.writeFileSync(settingsPath, JSON.stringify(settingsObject, null, 2), "utf8");
+        }
+      } catch (error) {
+        vscode.window.showErrorMessage(`Failed to process settings at ${settingsPath}`);
+      }
+    }
+    invertAndUpdateExclude(workspaceUri.fsPath + "/.vscode/settings.json", globalConfig);
+    const homeDir = process.env.HOME || process.env.USERPROFILE;
+    if (!homeDir) {
+      vscode.window.showWarningMessage("Could not determine user home directory.");
+      return;
+    }
+    const machineSettingsPaths = [
+      `${homeDir}/.vscode-server/data/Machine/settings.json`,
+      `${homeDir}/.cursor-server/data/Machine/settings.json`
+    ];
+    for (const settingsPath of machineSettingsPaths) {
+      if (fs.existsSync(settingsPath)) {
+        invertAndUpdateExclude(settingsPath);
+      }
+    }
+  });
+  context.subscriptions.push(disposable);
+}
+function deactivate() {
+}
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  activate,
+  deactivate
+});
+//# sourceMappingURL=extension.js.map

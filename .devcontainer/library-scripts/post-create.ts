@@ -8,7 +8,7 @@ import { $ } from 'npm:zx@8.1.3';
 
 $.verbose = true;
 
-await $`npm install --global @vscode/vsce`;
+await $`sudo npm install --global @vscode/vsce`;
 
 ///////////////////////////////////////////////////////////////////////////////
 // END

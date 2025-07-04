@@ -30,10 +30,9 @@ Type `Hide/Unhide Files from Explorer` in the Command Palette Prompt
 
 You can find the extension in the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ghostmind.hide-unhide)
 
-## development
+## development (use vscode)
 
-- use vscode (not cursor)
-- `cp -r ../ ~/` to have a developement environemnt in the extension window
-- `f5 to build and launch into another window`
-- `cmd+r to reload from the extension host window`
+- `run custom prepare` to create a test workspace for the extension host
+- `f5` to build and launch the extension host 
+- `cmd+r` to reload from the extension host window
 
